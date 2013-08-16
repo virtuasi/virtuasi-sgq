@@ -1,8 +1,7 @@
+#-*- coding: utf-8 -*-
 from unipath import Path
 
 PROJECT_ROOT = Path(__file__).parent.parent
-
-print PROJECT_ROOT
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -129,9 +128,13 @@ INSTALLED_APPS = (
     # third parts
 
     # ours
+    'apps.accounts',
     'core',
-
+    'apps.organization',
+    'apps.document',
 )
+
+AUTH_USER_MODEL = 'accounts.User'
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
