@@ -6,16 +6,6 @@ from .managers import GenericManager
 
 User = get_user_model()
 
-STATUS = (
-    (True,'Ativo'),
-    (False,'Inativo'),
-)
-
-CONTACT_TYPE = (
-    ('PA','particular'),
-    ('PR','professional'),
-)
-
 class GenericModel(models.Model):
     
     created_at = models.DateTimeField(auto_now_add=True, editable=False)
