@@ -31,9 +31,16 @@ class File(OrganizationGenericModel):
         return self.versao
 
 
+class Category(OrganizationGenericModel):
+    title = models.CharField(max_length=100)
+    description = models.CharField(max_length=250, blank=True)
+    parent = models.ForeignKey('self', null=True, blank=True, related_name='subcategories' )
+
+
 class Document(OrganizationGenericModel):
-    titulo = models.CharField(max_length=100)
-    descricao = models.CharField(max_length=250, blank=True)
+    title = models.CharField(max_length=100)
+    description=  models.CharField(max_length=250, blank=True)
+    category = models.ForeignKey('Category', null=True, related_name='categories' )
     secretiveness = models.IntegerField(choices=SECRETIVENESS)
 
     def __unicode__(self):
