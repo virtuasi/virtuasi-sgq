@@ -116,7 +116,7 @@ TEMPLATE_DIRS = (
     # Don't forget to use absolute paths, not relative paths.
 )
 
-INSTALLED_APPS = (
+DJANGO_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -124,15 +124,18 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
-
-    # third parts
-
-    # ours
-    'apps.accounts',
-    'core',
-    'apps.organization',
-    'apps.document',
 )
+
+THIRD_PARTY_APPS = ()
+
+LOCAL_APPS = (
+    'core',
+    'apps.accounts',
+    'apps.organization',
+    'apps.document', 
+)
+
+INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
 AUTH_USER_MODEL = 'accounts.User'
 
