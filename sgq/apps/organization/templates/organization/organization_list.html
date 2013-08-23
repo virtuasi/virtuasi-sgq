@@ -1,0 +1,13 @@
+{% extends "base_site.html" %}
+
+{% block content %}
+	{% if object_list %}
+		<ul>
+		{% for object in object_list %}
+			<li>{{ object.name }}</li>
+		{% endfor %}
+		</ul>
+	{% else %}
+		<p>Nenhuma organização cadastrada</p>
+	{% endif %}
+{% endblock content %}
