@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static from staticfiles %}
+
+{% block head %}
+<link href="{% static "css/base.css" %}" rel="stylesheet">
+{% endblock head %}
+
+{% block body %}
+	{% block menu %}
+		{% include "menu.html" %}
+	{% endblock menu %}
+
+	<div class="container">
+     {% block content %}
+	{% endblock content %}
+    </div><!-- /.container -->
+
+	{% block footer %}
+		{% include "footer.html" %}
+	{% endblock footer %}
+
+{% endblock body %}
