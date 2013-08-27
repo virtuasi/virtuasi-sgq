@@ -1,4 +1,4 @@
-virtuasi-sqg
+virtuasi-sgq
 ============
 
 Sistema de Gestão da Qualidade
@@ -19,7 +19,14 @@ No temrinal, execute:
     source /usr/local/bin/virtualenvwrapper.sh
     mkvirtualenv --distribute sgq
     
+Set WORKON_HOME to your virtualenv dir (Ubuntu)
 
+    export WORKON_HOME=~/.virtualenvs
+
+Add this line to the end of ~/.bashrc so that the virtualenvwrapper commands are loaded.
+
+    . /usr/local/bin/virtualenvwrapper.sh
+    
 ### Executanto o projeto
 
 Ative o ambiente.
