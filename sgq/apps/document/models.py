@@ -17,7 +17,7 @@ def upload_file(dir):
 
 
 class File(OrganizationGenericModel):
-    document = models.ForeignKey('Document', related_name='files')
+    document = models.ForeignKey('Document', related_name='files')  #acho que o relacionento deveria ser em document
     version = models.IntegerField(editable=False) # criar automativamente
     content = models.TextField()
     file = models.FileField(upload_to=upload_file('documents/files'))
@@ -40,7 +40,7 @@ class Category(OrganizationGenericModel):
 class Document(OrganizationGenericModel):
     title = models.CharField(max_length=100)
     description=  models.CharField(max_length=250, blank=True)
-    category = models.ForeignKey('Category', null=True, related_name='categories' )
+    categories = models.ManyToManyField('Category', null=True, related_name='categories' )
     secretiveness = models.IntegerField(choices=SECRETIVENESS)
 
     def __unicode__(self):
