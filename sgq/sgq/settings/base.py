@@ -1,7 +1,7 @@
 #-*- coding: utf-8 -*-
 from unipath import Path
 
-PROJECT_ROOT = Path(__file__).parent.parent
+PROJECT_ROOT = Path(__file__).parent.parent.parent
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG

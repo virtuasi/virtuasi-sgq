@@ -1,4 +1,5 @@
-from base import *
+#-*- coding: utf-8 -*-
+from .base import *
 
 ########## TEST SETTINGS
 TEST_RUNNER = 'discover_runner.DiscoverRunner'
