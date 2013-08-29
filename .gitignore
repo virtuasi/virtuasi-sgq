@@ -35,6 +35,6 @@ nosetests.xml
 .pydevproject
 
 # Project
-settings_local.py
+local.py
 sgq/static
 *.db
