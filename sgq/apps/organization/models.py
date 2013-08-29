@@ -10,7 +10,7 @@ class Organization(GenericModel):
     name = models.CharField(max_length=200, verbose_name='name')
     description = models.TextField(verbose_name='description')
     site = models.URLField(null=True, blank=True, verbose_name='site')
-    owner = models.ManyToManyField(User, verbose_name='owners', related_name='organizations')
+    owners = models.ManyToManyField(User, verbose_name='owners', related_name='organizations')
 
     @models.permalink
     def get_absolute_url(self):
