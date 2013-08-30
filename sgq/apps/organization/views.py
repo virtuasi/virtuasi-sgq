@@ -1,13 +1,13 @@
 #-*- coding: utf-8 -*-
 from django.shortcuts import render
-from  django.views.generic import CreateView, UpdateView, ListView, DetailView
 
+from core.views import GenericListView, GenericUpdateView, GenericDetailView, GenericCreateView
 
 from .models import Organization
 from .forms import OrganizationForm
 
 
-class OrganizationCreateView(CreateView):
+class OrganizationCreateView(GenericCreateView):
 	template_name = 'organization/organization_create.html'
 	model = Organization
 	form_class = OrganizationForm
@@ -16,7 +16,7 @@ class OrganizationCreateView(CreateView):
 		return form_class(self.request, **self.get_form_kwargs())
 
 
-class OrganizationUpdateView(UpdateView):
+class OrganizationUpdateView(GenericUpdateView):
 	template_name = 'organization/organization_update.html'
 	model = Organization
 	form_class = OrganizationForm
@@ -25,13 +25,15 @@ class OrganizationUpdateView(UpdateView):
 		return form_class(self.request, **self.get_form_kwargs())
 
 
-class OrganizationListView(ListView):
-	template_name = 'organization/organization_list.html'
+class OrganizationListView(GenericListView):
 	model = Organization
 	paginate_by = 20
 
+	def get_queryset(self, *args, **kwargs):
+		return self.model.objects.filter(members__id=self.request.user.id)
 
-class OrganizationDetailView(DetailView):
+
+class OrganizationDetailView(GenericDetailView):
 	template_name = 'organization/organization_detail.html'
 	model = Organization
 	paginate_by = 20

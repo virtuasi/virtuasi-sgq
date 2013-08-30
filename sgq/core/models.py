@@ -10,8 +10,8 @@ User = get_user_model()
 
 class GenericModel(models.Model):
     
-    created_at = models.DateTimeField(auto_now_add=True, editable=False)
-    modified_at = models.DateTimeField(auto_now=True, editable=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+    modified_at = models.DateTimeField(auto_now=True)
     author = models.ForeignKey(User)
     status = models.BooleanField(
         db_index=True,
