@@ -44,3 +44,17 @@ Execute o projeto
     python manage.py runserver
 
 Agora abra o projeto em [http://localhost:8000/](http://localhost:8000/ "development server").
+
+### Criando usuario padrão automaticamente. 
+    
+Crie o banco de dados e defina um usuário inicial
+
+    python manage.py syncdb
+
+Crie um json do usuário criado no passo anterior
+
+    python manage.py dumpdata --indent=2 auth > initial_data.json
+    
+Apague a base criada anteriormente e crie uma nova base
+    
+    python manage.py syncdb --noinput
